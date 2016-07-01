@@ -1,5 +1,7 @@
 %Pt9 frequency banding work
-% compare 5 minutes starting at 4 hr mark and 5 mins at 5 hr mark
+%Goal is to take some stretches of a given sleep stage and compare them 
+%Literature supports using 4-10, 13-30, and 60-80 Hz bands as these have
+%greatest differences in ON vs OFF DA-drug 
 
 Time1 = lfp12((397*1024*30):(561*1024*30)); % Wake, epochs 397:561
 Time2 = lfp12((288*1024*30):(350*1024*30)); % N2, epochs 288:350
@@ -9,7 +11,7 @@ fs = 1024;
 x = Time1;
 y = Time2;
 
-%%
+%% 4-10 Hz Band
 f = [4 10];
 %ff = 4; %figure out how to get variables in text
 %ll = 10;
@@ -49,7 +51,7 @@ set(gca, 'XLim', f);
 xlabel('Frequency (Hz)')
 ylabel('Power');
 title('PT9 LFP12 N2')
-%%
+%% 13- 30 Hz Band
 f = [13 30];
 %ff = 13; %figure out how to get variables in text
 %ll = 30;
@@ -89,7 +91,7 @@ set(gca, 'XLim', f);
 xlabel('Frequency (Hz)')
 ylabel('Power');
 title('PT9 LFP12 N2')
-%%
+%% 60-80 Hz Band
 f = [60 80];
 %ff = 60; %figure out how to get variables in text
 %ll = 80;
@@ -130,7 +132,7 @@ xlabel('Frequency (Hz)')
 ylabel('Power');
 title('PT9 LFP12 N2')
 
-%%
+%% Big comparison
 figure(4)
 window = 1024;
 overlap = 512;
